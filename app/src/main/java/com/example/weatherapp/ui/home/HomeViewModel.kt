@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.weatherapp.MainActivity
 import com.example.weatherapp.owm.api.OwmService
 import com.google.android.gms.location.CurrentLocationRequest
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -35,14 +36,9 @@ class HomeViewModel : ViewModel() {
     }
     val textTemp: LiveData<String> = _textTemp
 
-    fun updateForecast(locationClient: FusedLocationProviderClient) {
+    fun updateForecast(activity: MainActivity) {
         viewModelScope.launch {
-            val request = CurrentLocationRequest.Builder().build()
-            val location = locationClient.getCurrentLocation(request, null).await()
-
-            _text.value = "Got GPS"
-
-            val res = owmService.getForecast(location.latitude, location.longitude)
+            val res = activity.updateForecast()
 
             _text.value = res.city.coord.toString()
 

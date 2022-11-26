@@ -12,13 +12,21 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
 import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.weatherapp.owm.api.OwmService
+import com.example.weatherapp.owm.dataclasses.Response
+import com.google.android.gms.location.CurrentLocationRequest
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class MainActivity : AppCompatActivity() {
     private lateinit var layout: View
@@ -30,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         Manifest.permission.ACCESS_FINE_LOCATION
     )
     private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+        registerForActivityResult(RequestPermission()) {
             isGranted: Boolean ->
             if (isGranted) {
                 Log.i("Permission: ", "Granted")
@@ -39,6 +47,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    private val owmService = OwmService()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +75,16 @@ class MainActivity : AppCompatActivity() {
         for (p in permissions) {
             requestPermission(layout, p)
         }
+    }
 
+    suspend fun updateForecast(): Response {
+        val location = getLocation()!!
+        return owmService.getForecast(location.latitude, location.longitude)
+    }
 
+    private suspend fun getLocation(): Location? {
+        val request = CurrentLocationRequest.Builder().build()
+        return fusedLocationClient.getCurrentLocation(request, null).await()
     }
 
     private fun View.showSnackbar(

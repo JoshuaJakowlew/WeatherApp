@@ -49,9 +49,8 @@ class HomeFragment : Fragment() {
             textTempView.text = "${it} C"
         }
 
-        val act = (activity as MainActivity)
-        val locationClient = act.fusedLocationClient
-        homeViewModel.updateForecast(locationClient)
+//        val locationClient = (activity as MainActivity).fusedLocationClient
+        homeViewModel.updateForecast(activity as MainActivity)
 
         return root
     }
