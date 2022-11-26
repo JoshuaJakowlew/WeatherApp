@@ -31,14 +31,13 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val location: TextView = binding.location
-        homeViewModel.location.observe(viewLifecycleOwner) {
-            location.text = it
-        }
+        homeViewModel.location.observe(viewLifecycleOwner) { location.text = it }
 
         val temp: TextView = binding.realtemp
-        homeViewModel.temp.observe(viewLifecycleOwner) {
-            temp.text = it
-        }
+        homeViewModel.temp.observe(viewLifecycleOwner) { temp.text = it }
+
+        val date: TextView = binding.lastUpdate
+        homeViewModel.date.observe(viewLifecycleOwner) { date.text = it }
 
         homeViewModel.updateForecast(activity as MainActivity)
 

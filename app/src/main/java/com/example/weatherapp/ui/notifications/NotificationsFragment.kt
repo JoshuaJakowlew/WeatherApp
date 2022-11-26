@@ -7,7 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.weatherapp.MainActivity
+import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentNotificationsBinding
+import com.jjoe64.graphview.GraphView
+import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
 import com.squareup.moshi.Json
 
 class NotificationsFragment : Fragment() {
@@ -24,15 +29,37 @@ class NotificationsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+            ViewModelProvider(this)[NotificationsViewModel::class.java]
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val tempGraph: GraphView = binding.tempGraph
+        notificationsViewModel.temp.observe(viewLifecycleOwner) {
+            val series: LineGraphSeries<DataPoint> = LineGraphSeries(it)
+
+            tempGraph.viewport.isScrollable = true
+            tempGraph.viewport.isScalable = true
+            tempGraph.viewport.setScalableY(true)
+            tempGraph.viewport.setScrollableY(true)
+            tempGraph.viewport.setMaxX(5.0)
+
+            series.setAnimated(true)
+            series.dataPointsRadius = 25.0f
+            series.thickness = 15
+            series.backgroundColor = R.color.white
+            series.color = R.color.white
+            series.isDrawAsPath = true
+            series.isDrawDataPoints = true
+            series.isDrawBackground = true
+
+            tempGraph.removeAllSeries()
+            tempGraph.addSeries(series)
+            tempGraph.animate()
         }
+
+        notificationsViewModel.updateForecast(activity as MainActivity)
+
         return root
     }
 
