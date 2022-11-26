@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-medium"
-                android:text="-5°C"
+                android:text="0°C"
                 android:textSize="100sp" />
         </LinearLayout>
         <LinearLayout
