@@ -16,39 +16,22 @@ import kotlin.math.roundToInt
 class HomeViewModel : ViewModel() {
     private val owmService = OwmService()
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _location = MutableLiveData<String>().apply {
+        value = "City"
     }
-    val text: LiveData<String> = _text
+    val location: LiveData<String> = _location
 
-    private val _textDate = MutableLiveData<String>().apply {
-        value = "Current date..."
+    private val _temp = MutableLiveData<String>().apply {
+        value = "0"
     }
-    val textDate: LiveData<String> = _textDate
-
-    private val _textCity = MutableLiveData<String>().apply {
-        value = "City..."
-    }
-    val textCity: LiveData<String> = _textCity
-
-    private val _textTemp = MutableLiveData<String>().apply {
-        value = "Temperature..."
-    }
-    val textTemp: LiveData<String> = _textTemp
+    val temp: LiveData<String> = _temp
 
     fun updateForecast(activity: MainActivity) {
         viewModelScope.launch {
             val res = activity.updateForecast()
 
-            _text.value = res.city.coord.toString()
-
-            val city = res.city.name
-            val temp = res.forecasts!!.first().main.temp - 273
-            val date = Date(res.forecasts.first().dateUnix.toLong() * 1000)
-
-            _textCity.value = city
-            _textDate.value = date.toString()
-            _textTemp.value = temp.roundToInt().toString()
+            _location.value = res.city.name
+            _temp.value = res.forecasts!!.first().main.temp.roundToInt().toString()
         }
     }
 }
