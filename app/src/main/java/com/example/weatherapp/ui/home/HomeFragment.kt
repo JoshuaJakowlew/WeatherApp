@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp.MainActivity
 import com.example.weatherapp.databinding.FragmentHomeBinding
+import org.w3c.dom.Text
 
 class HomeFragment : Fragment() {
 
@@ -29,29 +30,16 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+        val location: TextView = binding.location
+        homeViewModel.location.observe(viewLifecycleOwner) { location.text = it }
 
-        val textDateView: TextView = binding.textDate
-        homeViewModel.textDate.observe(viewLifecycleOwner) {
-            textDateView.text = it
-        }
+        val temp: TextView = binding.realtemp
+        homeViewModel.temp.observe(viewLifecycleOwner) { temp.text = it }
 
-        val textCityView: TextView = binding.textCity
-        homeViewModel.textCity.observe(viewLifecycleOwner) {
-            textCityView.text = it
-        }
+        val date: TextView = binding.lastUpdate
+        homeViewModel.date.observe(viewLifecycleOwner) { date.text = it }
 
-        val textTempView: TextView = binding.textTemp
-        homeViewModel.textTemp.observe(viewLifecycleOwner) {
-            textTempView.text = "${it} C"
-        }
-
-        val act = (activity as MainActivity)
-        val locationClient = act.fusedLocationClient
-        homeViewModel.updateForecast(locationClient)
+        homeViewModel.updateForecast(activity as MainActivity)
 
         return root
     }
