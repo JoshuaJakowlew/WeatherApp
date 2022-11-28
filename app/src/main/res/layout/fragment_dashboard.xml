@@ -16,30 +16,43 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#3CF1EBF1"
             android:text="Day 1" />
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#3CF1EBF1"
             android:text="Day 2" />
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#3CF1EBF1"
             android:text="Day 3" />
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#3CF1EBF1"
             android:text="Day 4" />
-
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"/>
         <Button
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#3CF1EBF1"
             android:text="Day 5" />
 
     </LinearLayout>
