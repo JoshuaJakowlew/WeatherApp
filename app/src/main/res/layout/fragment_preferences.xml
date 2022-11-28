@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#3CF1EBF1"
-            android:text="Show temp in Celsius/Farenheit" />
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:text="Show temp in Celsius or Farenheit" />
         <Space
             android:layout_width="wrap_content"
             android:layout_height="10dp"/>
@@ -27,7 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#3CF1EBF1"
-            android:text="Show speed in kmh/ms" />
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:text="Show speed in km/h or m/s" />
         <Space
             android:layout_width="wrap_content"
             android:layout_height="10dp"/>
@@ -37,7 +41,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#3CF1EBF1"
-            android:text="Show pressure in mm/pa" />
+            android:paddingLeft="10dp"
+            android:textColor="@color/white"
+            android:text="Show pressure in mm Hg or GPa" />
 
         <Space
             android:layout_width="match_parent"
@@ -48,6 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Developed by:"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
             android:textSize="34sp" />
 
         <TextView
@@ -55,6 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="jakowlew"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
             android:textSize="24sp" />
 
         <TextView
@@ -62,12 +72,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="lipophrenia_"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
             android:textSize="24sp" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="230dp"
+            android:padding="10dp"
             app:srcCompat="@drawable/credits" />
     </LinearLayout>
 

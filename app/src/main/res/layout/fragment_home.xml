@@ -21,6 +21,7 @@
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:text="Location"/>
             <TextView
@@ -47,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="@color/white"
                 android:text="weather"
                 android:textSize="40sp" />
             <TextView
@@ -56,6 +58,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-medium"
                 android:text="0°C"
+                android:textColor="@color/white"
                 android:textSize="100sp" />
         </LinearLayout>
         <LinearLayout
@@ -80,8 +83,8 @@
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/sunrise"
-                        app:tint="#FFFFFF" />
+                        android:src="@drawable/clouds"
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
@@ -89,14 +92,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="Clouds"
                         android:textSize="12dp" />
                     <TextView
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
-                        android:text=""/>
+                        android:text="%"/>
                 </LinearLayout>
                 <Space
                     android:layout_width="10dp"
@@ -112,8 +117,8 @@
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/sunset"
-                        app:tint="#FFFFFF" />
+                        android:src="@drawable/visibility"
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
@@ -121,14 +126,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:text="Visibility"
                         android:textSize="12dp" />
                     <TextView
                         android:id="@+id/sunset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
-                        android:text=""/>
+                        android:text="%"/>
                 </LinearLayout>
                 <Space
                     android:layout_width="10dp"
@@ -145,19 +152,21 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/temperature"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="12dp"
                         android:text="Feels like:"/>
                     <TextView
                         android:id="@+id/temp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
                         android:text="°C"/>
                 </LinearLayout>
@@ -181,19 +190,21 @@
                     <ImageView android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/pressure"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="12dp"
                         android:text="Pressure"/>
                     <TextView
                         android:id="@+id/pressure"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
                         android:text="mm"/>
                 </LinearLayout>
@@ -212,19 +223,21 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/humidity"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="12dp"
                         android:text="Humidity"/>
                     <TextView
                         android:id="@+id/humidity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
                         android:text="%"/>
                 </LinearLayout>
@@ -243,19 +256,21 @@
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/wind"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white" />
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="12dp"
                         android:text="Wind"/>
                     <TextView
                         android:id="@+id/wind"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/white"
                         android:textSize="14dp"
                         android:text="m/s"/>
                 </LinearLayout>
