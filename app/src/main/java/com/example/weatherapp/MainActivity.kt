@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() {
 
     var forecast: Forecast? = null
 
+    var preferences: Preferences = Preferences()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -76,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_dashboard,
                 R.id.navigation_notifications,
-//                R.id.navigation_settings
+                R.id.navigation_preferences,
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

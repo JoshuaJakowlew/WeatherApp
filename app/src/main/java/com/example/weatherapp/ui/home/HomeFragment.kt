@@ -36,8 +36,29 @@ class HomeFragment : Fragment() {
         val temp: TextView = binding.realtemp
         homeViewModel.temp.observe(viewLifecycleOwner) { temp.text = it }
 
+        val feelsLikeTemp: TextView = binding.temp
+        homeViewModel.feelsLikeTemp.observe(viewLifecycleOwner) { feelsLikeTemp.text = it }
+
         val date: TextView = binding.lastUpdate
         homeViewModel.date.observe(viewLifecycleOwner) { date.text = it }
+
+        val wind: TextView = binding.wind
+        homeViewModel.wind.observe(viewLifecycleOwner) { wind.text = it }
+
+        val pressure: TextView = binding.pressure
+        homeViewModel.pressure.observe(viewLifecycleOwner) { pressure.text = it }
+
+        val humidity: TextView = binding.humidity
+        homeViewModel.humidity.observe(viewLifecycleOwner) { humidity.text = it }
+
+        val weather: TextView = binding.status
+        homeViewModel.weather.observe(viewLifecycleOwner) { weather.text = it }
+
+        val clouds: TextView = binding.sunrise
+        homeViewModel.clouds.observe(viewLifecycleOwner) { clouds.text = it }
+
+        val visibility: TextView = binding.sunset
+        homeViewModel.visible.observe(viewLifecycleOwner) { visibility.text = it }
 
         homeViewModel.updateForecast(activity as MainActivity)
 

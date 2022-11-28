@@ -85,11 +85,12 @@
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
-                        android:text="Sunrise"/>
+                        android:text="Clouds"
+                        android:textSize="12dp" />
                     <TextView
                         android:id="@+id/sunrise"
                         android:layout_width="wrap_content"
@@ -116,11 +117,12 @@
                     <Space
                         android:layout_width="wrap_content"
                         android:layout_height="5dp"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12dp"
-                        android:text="Sunset"/>
+                        android:text="Visibility"
+                        android:textSize="12dp" />
                     <TextView
                         android:id="@+id/sunset"
                         android:layout_width="wrap_content"
